@@ -1,5 +1,5 @@
- # Fedora 41 Post Install Guide
-Things to do after installing Fedora 41
+ # Fedora 42 Post Install Guide
+Things to do after installing Fedora 42
 
 ## Please read this if you can
 Hi, I have been going through a very tough stretch in life, and am actively looking for work to be able to support myself. I created this guide 3.5 years ago and this is the only place that has gained some traction where I could possibly ask out for help. I can be reached out to at devangshekhawat@protonmail.com if you know of anything that might be of help please write me a mail, I would be tremendously grateful to for any assistance that I can get.
