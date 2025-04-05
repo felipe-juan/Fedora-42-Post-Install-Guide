@@ -10,9 +10,9 @@ I hope you find the guide helpful!
 * Fedora has disabled the repositories for a lot of free and non-free .rpm packages by default. Follow this if you want to use non-free software like Steam, Discord and some multimedia codecs etc. As a general rule of thumb it is advised to do this to get access to many mainstream useful programs.
 * Enable third party repositories by pasting the following into the terminal: 
 * `sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm`
-* For Terra
+* For Terra:
 * `sudo dnf install --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release`
-* also while you're at it, install app-stream metadata by
+* also while you're at it, install app-stream metadata by:
 * `sudo dnf group upgrade core`
 * `sudo dnf4 group update core`
   
@@ -37,7 +37,7 @@ sudo fwupdmgr update
 
 ## AppImage
 
-* For Appimage support install fuse
+* For Appimage support install fuse:
 * `sudo dnf in fuse`
 * You can also install an AppImage manager like [Gearlever](https://flathub.org/apps/it.mijorus.gearlever) for neater management. To do so, run the following command:
 * `flatpak install it.mijorus.gearlever` 
