@@ -30,24 +30,20 @@ sudo fwupdmgr get-devices # Lists devices with available updates.
 sudo fwupdmgr get-updates # Fetches list of available updates.
 sudo fwupdmgr update
 ```
-## AppImage
-
-For Appimage support install fuse
-
-`sudo dnf in fuse`
-
-You can install AppImage manager like [pho](https://github.com/zyrouge/pho). If you use Flatpak, you can install [Gearlever](https://flathub.org/apps/it.mijorus.gearlever) `flatpak install it.mijorus.gearlever`
 
 ## Flatpak
 * Fedora doesn't include all non-free flatpaks by default. The command below enables access to all the flathub flatpaks. Particularly useful for users of Fedora KDE and other spins since they do not get the "Enable Third Party Repositories" option on initial boot.
 * `flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo`
 
+## AppImage
+
+* For Appimage support install fuse
+* `sudo dnf in fuse`
+* You can also install an AppImage manager like [Gearlever](https://flathub.org/apps/it.mijorus.gearlever) for neater management. To do so, run the following command:
+* `flatpak install it.mijorus.gearlever` 
+
 ## NVIDIA Drivers
-* Only follow this if you have a NVIDIA gpu. Also, don't follow this if you have a gpu which has dropped support for newer driver releases i.e. anything earlier than nvidia GT/GTX 600, 700, 800, 900, 1000, 1600 and RTX 2000, 3000, 4000 series. Fedora comes preinstalled with NOUVEAU drivers which may or may not work better on those remaining older GPUs. This should be followed by Desktop and Laptop users alike.
-* `sudo dnf install kmodtool akmods mokutil openssl` #To auto sign kernel modules
-* Reboot
-* `sudo mokutil --import /etc/pki/akmods/certs/public_key.der` #Initiate key enrollment. You'll be asked to create a password--it can be anything, you'll only use it once.
-* Reboot. The MOK Manager will appear. Select "Enroll MOK" and enter the password you just created. Then "Continue boot"
+* Only follow this if you have a NVIDIA gpu. Also, don't follow this if you have a gpu which has dropped support for newer driver releases i.e. anything earlier than nvidia GT/GTX 600, 700, 800, 900, 1000, 1600 and RTX 2000, 3000, 4000, 5000 series. Fedora comes preinstalled with NOUVEAU drivers which may or may not work better on those remaining older GPUs. This should be followed by Desktop and Laptop users alike.
 * `sudo dnf update` #To make sure you're on the latest kernel and then reboot.
 * Enable RPM Fusion Nvidia non-free repository in the app store and install it from there,
 * or alternatively
