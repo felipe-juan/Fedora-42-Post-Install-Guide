@@ -68,10 +68,10 @@ sudo fwupdmgr update
 ## Media Codecs
 * Install these to get proper multimedia playback.
 ````
-sudo dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing # Switch to full FFMPEG.
 sudo dnf4 group upgrade multimedia
+sudo dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing # Switch to full FFMPEG.
 sudo dnf upgrade @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin # Installs gstreamer components. Required if you use Gnome Videos and other dependent applications.
-sudo dnf group install -y sound-and-video # Installs useful Sound and Video complement packages.
+sudo dnf group install -y sound-and-video # Installs useful Sound and Video complementary packages.
 ````
 
 ## H/W Video Acceleration
@@ -95,6 +95,8 @@ sudo dnf group install -y sound-and-video # Installs useful Sound and Video comp
 ```
 sudo dnf swap mesa-va-drivers mesa-va-drivers-freeworld
 sudo dnf swap mesa-vdpau-drivers mesa-vdpau-drivers-freeworld
+sudo dnf swap mesa-va-drivers.i686 mesa-va-drivers-freeworld.i686
+sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 ```
 </details>
 
