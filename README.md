@@ -34,7 +34,7 @@ sudo fwupdmgr update
 * `sudo dnf in fuse`
 * You can also install an AppImage manager like [Gearlever](https://flathub.org/apps/it.mijorus.gearlever) for neater management. To do so, run the following command:
 * `flatpak install it.mijorus.gearlever`
-* 
+
 ## Media Codecs
 * Install these to get proper multimedia playback.
 ````
