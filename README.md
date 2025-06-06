@@ -40,7 +40,11 @@ sudo fwupdmgr update
 ````
 sudo dnf4 group upgrade multimedia
 sudo dnf swap 'ffmpeg-free' 'ffmpeg' --allowerasing # Switch to full FFMPEG.
-sudo dnf upgrade @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin # Installs gstreamer components. Required if you use Gnome Videos and other dependent applications.
+sudo dnf upgrade @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin # Installs gstreamer components. Required if you use Gnome Videos and other dependent applications.Disable NetworkManager-wait-online.service
+
+    Disabling it can decrease the boot time by at least ~15s-20s:
+    sudo systemctl disable NetworkManager-wait-online.service
+
 sudo dnf group install -y sound-and-video # Installs useful Sound and Video complementary packages.
 ````
 
@@ -77,9 +81,17 @@ sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 
 
 ## Optimizations
-* The tips below can allow you to squeeze out a little bit more performance from your system. 
+* The tips below can allow you to squeeze out a little bit more performance from your system.
+  
+### Disable NetworkManager-wait-online.service
+Disabling it can decrease the boot time by at least ~15s-20s:
+- `sudo systemctl disable NetworkManager-wait-online.service`
 
 ### Disable Mitigations 
 * Increases performance in multithreaded systems. The more cores you have in your cpu the greater the performance gain. 5-30% performance gain varying upon systems. Do not follow this if you share services and files through your network or are using fedora in a VM. 
 * Modern intel CPUs (above 10th gen) do not gain noticeable performance improvements upon disabling mitigations. Hence, disabling mitigations can present some security risks against various attacks, however, it still _might_ increase the CPU performance of your system.
 * `sudo grubby --update-kernel=ALL --args="mitigations=off"`
+
+### Use themes in Flatpaks
+sudo flatpak override --filesystem=$HOME/.themes
+sudo flatpak override --env=GTK_THEME=my-them
