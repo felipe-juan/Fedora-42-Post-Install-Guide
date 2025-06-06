@@ -93,5 +93,5 @@ Disabling it can decrease the boot time by at least ~15s-20s:
 * `sudo grubby --update-kernel=ALL --args="mitigations=off"`
 
 ### Use themes in Flatpaks
-sudo flatpak override --filesystem=$HOME/.themes
-sudo flatpak override --env=GTK_THEME=my-them
+- `sudo flatpak override --filesystem=$HOME/.themes`
+- `sudo flatpak override --env=GTK_THEME=my-them`
