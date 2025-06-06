@@ -75,18 +75,6 @@ sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 * `sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1`
 * After this enable the OpenH264 Plugin in Firefox's settings.
 
-## Set Hostname
-* `hostnamectl set-hostname YOUR_HOSTNAME`
-
-## Custom DNS Servers
-* For people that want to setup custom DNS servers for better privacy
-```
-sudo mkdir -p '/etc/systemd/resolved.conf.d' && sudo -e '/etc/systemd/resolved.conf.d/99-dns-over-tls.conf'
-
-[Resolve]
-DNS=1.1.1.2#security.cloudflare-dns.com 1.0.0.2#security.cloudflare-dns.com 2606:4700:4700::1112#security.cloudflare-dns.com 2606:4700:4700::1002#security.cloudflare-dns.com
-DNSOverTLS=yes
-```
 
 ## Optimizations
 * The tips below can allow you to squeeze out a little bit more performance from your system. 
@@ -95,11 +83,3 @@ DNSOverTLS=yes
 * Increases performance in multithreaded systems. The more cores you have in your cpu the greater the performance gain. 5-30% performance gain varying upon systems. Do not follow this if you share services and files through your network or are using fedora in a VM. 
 * Modern intel CPUs (above 10th gen) do not gain noticeable performance improvements upon disabling mitigations. Hence, disabling mitigations can present some security risks against various attacks, however, it still _might_ increase the CPU performance of your system.
 * `sudo grubby --update-kernel=ALL --args="mitigations=off"`
-
-### Disable `NetworkManager-wait-online.service`
-* Disabling it can decrease the boot time by at least ~15s-20s:
-* `sudo systemctl disable NetworkManager-wait-online.service`
-
-### Disable Gnome Software from Startup Apps
-* Gnome software autostarts on boot for some reason, even though it is not required on every boot unless you want it to do updates in the background, this takes at least 100MB of RAM upto 900MB (as reported anecdotically). You can stop it from autostarting by:
-* `sudo rm /etc/xdg/autostart/org.gnome.Software.desktop`
