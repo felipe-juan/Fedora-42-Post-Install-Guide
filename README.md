@@ -79,18 +79,9 @@ sudo dnf swap mesa-vdpau-drivers.i686 mesa-vdpau-drivers-freeworld.i686
 * `sudo dnf config-manager setopt fedora-cisco-openh264.enabled=1`
 * After this enable the OpenH264 Plugin in Firefox's settings.
 
-
-## Optimizations
-* The tips below can allow you to squeeze out a little bit more performance from your system.
-  
 ### Disable NetworkManager-wait-online.service
 Disabling it can decrease the boot time by at least ~15s-20s:
 - `sudo systemctl disable NetworkManager-wait-online.service`
-
-### Disable Mitigations 
-* Increases performance in multithreaded systems. The more cores you have in your cpu the greater the performance gain. 5-30% performance gain varying upon systems. Do not follow this if you share services and files through your network or are using fedora in a VM. 
-* Modern intel CPUs (above 10th gen) do not gain noticeable performance improvements upon disabling mitigations. Hence, disabling mitigations can present some security risks against various attacks, however, it still _might_ increase the CPU performance of your system.
-* `sudo grubby --update-kernel=ALL --args="mitigations=off"`
 
 ### Use themes in Flatpaks
 - `sudo flatpak override --filesystem=xdg-config/gtk-3.0`
